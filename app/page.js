@@ -13,8 +13,16 @@ export default function Home() {
     }}>
       <h1>Hello World</h1>
 
-      <Script id="chatbase-script">
-        {`(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="${process.env.NEXT_PUBLIC_CHATBOT_ID}";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();`}
+      <Script id="yourgpt-chatbot" strategy="afterInteractive">
+        {`
+          window.YGC_WIDGET_ID = "${process.env.NEXT_PUBLIC_YOURGPT_WIDGET_ID}";
+          (function(){
+            var script = document.createElement('script');
+            script.src = "https://widget.yourgpt.ai/script.js";
+            script.id = 'yourgpt-chatbot';
+            document.body.appendChild(script);
+          })();
+        `}
       </Script>
     </main>
   )
