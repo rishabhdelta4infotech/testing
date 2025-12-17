@@ -11,7 +11,7 @@ export default function Home() {
       height: '100vh',
       fontFamily: 'system-ui, sans-serif'
     }}>
-      <h1>Hello World</h1>
+      <h1>Hello Worldsss</h1>
 
       <Script id="yourgpt-chatbot" strategy="afterInteractive">
         {`
